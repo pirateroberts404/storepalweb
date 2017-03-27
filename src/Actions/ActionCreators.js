@@ -1,5 +1,5 @@
 import keys from '../keys';
-import { GET_ALL_ORDERS, GET_ORDER } from './OrderActions';
+import { GET_ALL_ORDERS, GET_ORDER, GET_NOTES } from './OrderActions';
 import axios from 'axios';
 
 
@@ -21,6 +21,14 @@ export function getOrder(orderID){
     let url = 'https://roofrack.com.au/wp-json/wc/v1/orders/' + orderID;
     return {
         type: GET_ORDER,
+        payload: axios.get(url, {auth: auth})
+    }
+}
+
+export function getNotes(orderID){
+    let url = 'https://roofrack.com.au/wp-json/wc/v1/orders/' + orderID + '/notes';
+    return {
+        type: GET_NOTES,
         payload: axios.get(url, {auth: auth})
     }
 }

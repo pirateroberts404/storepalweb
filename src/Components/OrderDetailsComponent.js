@@ -35,12 +35,14 @@ export default class OrderDetailsComponent extends Component {
         ];
         return(
             <div className="row">
-                <OrderStatus 
-                status={this.props.orders.single_order_data.status} 
-                payment={this.props.orders.single_order_data.payment_method_title}
-                />
-                <OrderBody order={this.props.orders.single_order_data} />
-                <OrderItems items={this.props.orders.single_order_data.line_items} order={this.props.orders.single_order_data}></OrderItems>
+                <div className="col-md-9">
+                    <OrderBody order={this.props.orders.single_order_data} />
+                    <OrderItems items={this.props.orders.single_order_data.line_items} order={this.props.orders.single_order_data}></OrderItems>
+                </div>
+                <div className="col-md-3">
+                    Comments
+                    </div>
+                    
             </div>
         )
     }
