@@ -4,6 +4,7 @@ var Spinner = require('react-spinkit');
 import Select from 'react-select';
 import OrderStatus from './OrderStatus';
 import OrderBody from './OrderBody';
+import OrderItems from './OrderItems';
 
 export default class OrderDetailsComponent extends Component {
     constructor(props) {
@@ -34,8 +35,12 @@ export default class OrderDetailsComponent extends Component {
         ];
         return(
             <div className="row">
-                <OrderStatus status={this.props.orders.single_order_data.status}/>
+                <OrderStatus 
+                status={this.props.orders.single_order_data.status} 
+                payment={this.props.orders.single_order_data.payment_method_title}
+                />
                 <OrderBody order={this.props.orders.single_order_data} />
+                <OrderItems></OrderItems>
             </div>
         )
     }
