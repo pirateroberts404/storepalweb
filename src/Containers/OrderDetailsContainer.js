@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import OrderDetailsComponent from '../Components/OrderDetailsComponent'
-import { getOrder }  from '../Actions/ActionCreators';
+import { getOrder, getNotes }  from '../Actions/ActionCreators';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getOrder: (id) => dispatch(getOrder(id))
+    getOrder: (id) => dispatch(getOrder(id)),
+    getNotes: id => dispatch(getNotes(id))
   }
 }
 

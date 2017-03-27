@@ -17,6 +17,7 @@ export default class OrderDetailsComponent extends Component {
 
     componentWillMount(){
         this.props.getOrder(this.props.match.params.id);
+        this.props.getNotes(this.props.match.params.id);
     }
 
     logChange(val) {

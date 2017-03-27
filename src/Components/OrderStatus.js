@@ -83,7 +83,7 @@ class OrderStatus extends Component {
         }
 
         return(
-            <div class="order-status">
+            <div className="order-status">
                 <span style={styles.first_text}>Order Status:
                     <a href="#" style={styles.text} onClick={this.onClick}>{this.order_status} 
                         <span className="icon icon-edit" style={styles.icon}></span>

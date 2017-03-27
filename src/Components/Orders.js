@@ -20,6 +20,7 @@ export default class Orders extends Component {
         console.log("On Change pgae");
         console.log(e);
         this.props.getOrders(e.page +1);
+        this.props.getNotes(e.page +1);
     }
     
     render() {
