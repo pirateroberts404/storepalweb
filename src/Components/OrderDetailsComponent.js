@@ -3,6 +3,7 @@ import DashHead from './DashHead';
 var Spinner = require('react-spinkit');
 import Select from 'react-select';
 import OrderStatus from './OrderStatus';
+import OrderBody from './OrderBody';
 
 export default class OrderDetailsComponent extends Component {
     constructor(props) {
@@ -33,24 +34,8 @@ export default class OrderDetailsComponent extends Component {
         ];
         return(
             <div className="row">
-                <div className="col-md-3">
-                    <OrderStatus 
-                        status={this.props.orders.single_order_data.status}
-                        options={options}
-                    />
-                    <Select
-                        name="form-field-name"
-                        value={this.props.orders.single_order_data.status}
-                        options={options}
-                        onChange={this.logChange.bind(this)}
-                        clearable={false}
-                    />
-                    <div className="panel panel-default">
-                        <div className="panel-body">
-                            Basic panel example
-                        </div>
-                    </div>
-                </div>
+                <OrderStatus status={this.props.orders.single_order_data.status}/>
+                <OrderBody order={this.props.orders.single_order_data} />
             </div>
         )
     }

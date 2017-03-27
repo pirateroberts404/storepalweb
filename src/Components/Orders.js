@@ -21,7 +21,7 @@ export default class Orders extends Component {
         console.log(e);
         this.props.getOrders(e.page +1);
     }
-
+    
     render() {
         let getOrder = this.props.getOrder
         const columns = [
@@ -47,7 +47,6 @@ export default class Orders extends Component {
             <div className="col-sm-9 content">
                 <DashHead title="Orders"></DashHead>
                 <hr className="m-t"/>
-                
                     <ReactTable
                     onChange={this.onChangePage.bind(this)}
                     manual

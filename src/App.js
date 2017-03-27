@@ -12,6 +12,10 @@ import logger from 'redux-logger'
 import promise from 'redux-promise-middleware';
 import { getAllOrders } from './Actions/ActionCreators';
 import OrderDetail from './Containers/OrderDetailsContainer';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+injectTapEventPlugin();
 
 import {
   BrowserRouter as Router,
@@ -26,23 +30,20 @@ const storePalApp = combineReducers({
 const middleware = applyMiddleware(promise(), logger);
 let store = createStore(storePalApp, middleware);
 
-console.log(store.getState());
-
-// store.dispatch(getAllOrders());
-
-
 class App extends Component {
   
   render() {
     return (
       <Provider store={store}>
         <Router>
+          <MuiThemeProvider>
           <div className="s">
             <SideBar />
             <Route exact path="/" component={Overview}/>
             <Route exact path="/orders" component={OrdersList}/>
             <Route path="/orders/:id" component={OrderDetail}/>
           </div>
+          </MuiThemeProvider>
         </Router>
         </Provider>
     );
