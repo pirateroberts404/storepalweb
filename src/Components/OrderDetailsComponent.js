@@ -5,11 +5,11 @@ import Select from 'react-select';
 import OrderStatus from './OrderStatus';
 import OrderBody from './OrderBody';
 import OrderItems from './OrderItems';
+import OrderComments from './OrderComments';
 
 export default class OrderDetailsComponent extends Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             'value': 'pending'
         }
@@ -37,12 +37,16 @@ export default class OrderDetailsComponent extends Component {
         return(
             <div className="row">
                 <div className="col-md-9">
+                    
                     <OrderBody order={this.props.orders.single_order_data} />
                     <OrderItems items={this.props.orders.single_order_data.line_items} order={this.props.orders.single_order_data}></OrderItems>
                 </div>
                 <div className="col-md-3">
-                    Comments
-                    </div>
+                    <OrderComments 
+                        notes={this.props.orders.notes} 
+                        loading_notes={this.props.orders.loading_notes}>
+                    </OrderComments>
+                </div>
                     
             </div>
         )

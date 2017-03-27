@@ -18,7 +18,7 @@ const orders = (state = {
     case "GET_ORDER_FULFILLED":
       return {...state, single_order_data: action.payload.data, loading_single_order: false }
     case "GET_NOTES_PENDING":
-      return {...state, notes: {}, loading_notes: true }
+      return {...state, notes: [], loading_notes: true }
     case "GET_NOTES_FULFILLED":
       return {...state, notes: action.payload.data, loading_notes: false }
     default:

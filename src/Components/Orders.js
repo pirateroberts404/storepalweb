@@ -14,13 +14,9 @@ var Spinner = require('react-spinkit');
 export default class Orders extends Component {
     constructor(props){
         super(props);
-        console.log("Orders, Constructor");
     }    
     onChangePage(e){
-        console.log("On Change pgae");
-        console.log(e);
         this.props.getOrders(e.page +1);
-        this.props.getNotes(e.page +1);
     }
     
     render() {
@@ -30,7 +26,7 @@ export default class Orders extends Component {
                 header: 'Order Number',
                 accessor: 'number',
                 sortable: false,
-                render: (props, getOrder) => <Link to={`/orders/${props.value}`} onClick={e=>this.props.getOrder(props.value)}>{props.value}</Link>}, 
+                render: (props, getOrder) => <Link to={`/orders/${props.value}`}>{props.value}</Link>}, 
             {
                 header: 'Status',
                 sortable: false,

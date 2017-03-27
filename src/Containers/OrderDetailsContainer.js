@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getOrder: (id) => dispatch(getOrder(id)),
-    getNotes: id => dispatch(getNotes(id))
+    getNotes: (id) => dispatch(getNotes(id))
   }
 }
 
