@@ -40,7 +40,7 @@ export default class OrderDetailsComponent extends Component {
                 payment={this.props.orders.single_order_data.payment_method_title}
                 />
                 <OrderBody order={this.props.orders.single_order_data} />
-                <OrderItems items={this.props.orders.single_order_data.line_items}></OrderItems>
+                <OrderItems items={this.props.orders.single_order_data.line_items} order={this.props.orders.single_order_data}></OrderItems>
             </div>
         )
     }

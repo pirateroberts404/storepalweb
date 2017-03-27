@@ -11,3 +11,15 @@
 .sk-three-bounce {
   text-align: center;
 }
+
+.order-totals {
+  float: right;
+}
+
+.order-totals-titles{
+  font-weight: 500;
+}
+
+.order-body h4 {
+  font-weight: 500;
+}
