@@ -20,6 +20,12 @@
   font-weight: 500;
 }
 
+.order-body {
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 10px;
+}
+
 .order-body h4 {
   font-weight: 500;
 }

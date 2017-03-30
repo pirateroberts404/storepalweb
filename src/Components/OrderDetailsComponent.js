@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import DashHead from './DashHead';
-var Spinner = require('react-spinkit');
+import Spinner from 'react-spinkit';
 import Select from 'react-select';
 import OrderStatus from './OrderStatus';
 import OrderBody from './OrderBody';
 import OrderItems from './OrderItems';
 import OrderComments from './OrderComments';
+import TabsExampleSimple from './TabsExampleSimple'
 
 export default class OrderDetailsComponent extends Component {
     constructor(props) {
@@ -36,18 +37,14 @@ export default class OrderDetailsComponent extends Component {
         ];
         return(
             <div className="row">
-                <div className="col-md-9">
-                    
-                    <OrderBody order={this.props.orders.single_order_data} />
-                    <OrderItems items={this.props.orders.single_order_data.line_items} order={this.props.orders.single_order_data}></OrderItems>
-                </div>
-                <div className="col-md-3">
-                    <OrderComments 
+                <div className="col-md-12">
+                    <TabsExampleSimple 
+                        order={this.props.orders.single_order_data}
                         notes={this.props.orders.notes} 
-                        loading_notes={this.props.orders.loading_notes}>
-                    </OrderComments>
+                        loading_notes={this.props.orders.loading_notes}
+                    >
+                    </TabsExampleSimple>
                 </div>
-                    
             </div>
         )
     }
@@ -55,7 +52,7 @@ export default class OrderDetailsComponent extends Component {
     render() {
         console.log(this.props.match)
         return (
-            <div className="col-sm-9 content">
+            <div className="col-md-9 content">
                 <DashHead title={`Order: ${this.props.match.params.id}`}></DashHead>
                 <hr className="m-t"/>
                 {this.props.orders.loading_single_order ? 

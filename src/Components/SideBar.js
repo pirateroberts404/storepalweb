@@ -6,14 +6,14 @@ import {
 export default class SideBar extends Component {
     render() {
         return (
-            <div className="col-sm-3 sidebar">
+            <div className="col-md-3 sidebar">
                 <nav className="sidebar-nav">
                     <div className="sidebar-header">
                         <button
-                            className="nav-toggler nav-toggler-sm sidebar-toggler"
+                            className="nav-toggler nav-toggler-md sidebar-toggler"
                             type="button"
                             data-toggle="collapse"
-                            data-target="#nav-toggleable-sm">
+                            data-target="#nav-toggleable-md">
                             <span className="sr-only">Toggle nav</span>
                         </button>
                         <a className="sidebar-brand img-responsive" href="../index.html">
@@ -21,7 +21,7 @@ export default class SideBar extends Component {
                         </a>
                     </div>
 
-                    <div className="collapse nav-toggleable-sm" id="nav-toggleable-sm">
+                    <div className="collapse nav-toggleable-md" id="nav-toggleable-md">
                         <form className="sidebar-form">
                             <input className="form-control" type="text" placeholder="Search..."/>
                             <button type="submit" className="btn-link">

@@ -3,6 +3,7 @@ import DashHead from './DashHead';
 import { connect } from 'react-redux';
 import {Table, Column, Cell} from 'fixed-data-table'
 import ReactTable from 'react-table'
+import OrderSearch from './OrderSearch'
 
 import {
   BrowserRouter as Router,
@@ -41,10 +42,11 @@ export default class Orders extends Component {
                 accessor: 'total'},
         ]
         return (
-            <div className="col-sm-9 content">
+            <div className="col-md-9 content">
                 <DashHead title="Orders"></DashHead>
                 <hr className="m-t"/>
-                    <ReactTable
+                <OrderSearch></OrderSearch>
+                <ReactTable
                     onChange={this.onChangePage.bind(this)}
                     manual
                     showPageSizeOptions={false}
@@ -55,7 +57,6 @@ export default class Orders extends Component {
                     noDataText=""
                     columns={columns}
                 />
-                
             </div>
         );
     }
