@@ -13,6 +13,10 @@ const orders = (state = {
       return {...state, data: action.payload.data, loading_orders: false, pages: action.payload.headers['x-wp-totalpages'] }
     case "GET_ALL_ORDERS_PENDING":
       return {...state, data: [], loading_orders: true }
+    case "GET_SEARCH_ORDERS_FULFILLED":
+      return {...state, data: action.payload.data, loading_orders: false, pages: action.payload.headers['x-wp-totalpages'] }
+    case "GET_SEARCH_ORDERS_PENDING":
+      return {...state, data: [], loading_orders: true }
     case "GET_ORDER_PENDING":
       return {...state, single_order_data: {}, loading_single_order: true }
     case "GET_ORDER_FULFILLED":

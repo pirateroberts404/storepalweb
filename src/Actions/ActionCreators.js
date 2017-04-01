@@ -1,5 +1,5 @@
 import keys from '../keys';
-import { GET_ALL_ORDERS, GET_ORDER, GET_NOTES } from './OrderActions';
+import { GET_ALL_ORDERS, GET_ORDER, GET_NOTES, GET_SEARCH_ORDERS} from './OrderActions';
 import axios from 'axios';
 
 
@@ -8,11 +8,20 @@ const auth = {
     password: keys.password
 }
         
-export function getAllOrders(page=1){
-    let url = 'https://roofrack.com.au/wp-json/wc/v1/orders?page='+page+'&per_page=12';
+export function getAllOrders(page=1, status='any'){
+    let url = 'https://roofrack.com.au/wp-json/wc/v1/orders?page='+page+'&per_page=12&status='+status;
     console.log(url);
     return {
         type: GET_ALL_ORDERS,
+        payload: axios.get(url, {auth: auth})
+    }
+}
+
+export function getSearchOrders(query, page=1){
+    let url = 'https://roofrack.com.au/wp-json/wc/v1/orders?search='+query+'&page='+page+'&per_page=12';
+    console.log(url);
+    return {
+        type: GET_SEARCH_ORDERS,
         payload: axios.get(url, {auth: auth})
     }
 }

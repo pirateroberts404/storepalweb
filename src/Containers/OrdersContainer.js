@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Orders from '../Components/Orders'
-import { getAllOrders, getOrder, getNotes }  from '../Actions/ActionCreators';
+import { getAllOrders, getOrder, getNotes, getSearchOrders }  from '../Actions/ActionCreators';
 
 const mapStateToProps = (state) => {
   return {
@@ -10,9 +10,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getOrders: page =>  dispatch(getAllOrders(page)),
+    getOrders: (page, filter) =>  dispatch(getAllOrders(page, filter)),
     getOrder: id => dispatch(getOrder(id)),
-    getNotes: id => dispatch(getNotes(id))
+    getNotes: id => dispatch(getNotes(id)),
+    searchOrders: query => dispatch(getSearchOrders(query))
   }
 }
 
